@@ -1,0 +1,91 @@
+﻿/* =define margin superior da página como 0 */
+*{margin: 0;
+padding:0;
+}
+
+/* =container da página */
+#container {
+    margin: 0px auto 0px auto;
+	width: 960px;
+	height:930px;
+	background:#ccddbb; 
+}
+#cabecalho {
+    margin:0px auto 0px auto;
+    width:960px;
+    height:320px;
+    position:relative;
+	background:#c0c0c0; 
+}
+#corpo {
+    margin: 1px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    min-height: 580px;		
+}
+nav{
+    margin:0px auto 0px auto;
+    width:200px;
+    height:600px;
+	float:left;
+	background:#c0c0ff; 	
+}
+section {
+    margin: 0px auto 0px auto;
+    width: 530px;
+    /* Alterado de height fixa para min-height para deixar o bloco crescer se precisar */
+    min-height: 600px; 
+    float: left;
+    background: #c0c088; 
+    margin-left: 10px;	
+    padding-bottom: 20px; /* Garante uma folga visual no fundo do bloco */
+}
+.cabecalho_artigo {
+    margin:0px auto 0px auto;
+    width:500px;
+    height:50px;
+	float:left;
+	background:#c0c0c0; 
+	margin:10px;	
+}
+.artigo {
+    margin: 0px auto 0px auto;
+    width: 500px;
+    /* Solução da Charada: Mudado de height rígido para min-height */
+    min-height: 500px; 
+    float: left;
+    background: #c0c0c0; 
+    margin: 10px;
+    padding-bottom: 25px; /* Abre espaço confortável abaixo do botão azul */
+    box-sizing: border-box;
+}
+/*.rodape_artigo {
+    margin:0px auto 0px auto;
+    width:500px;
+    height:50px;
+	float:left;
+	background:#c0c0c0; 
+	margin:10px;	
+}*/
+#propaganda {
+    margin:0px auto 0px auto;
+    width:200px;
+    height:600px;
+	float:left;
+	background:#c0c000; 
+	margin-left:15px;
+}
+#rodape {
+    margin: 0px auto  0px auto;
+	width: 960px;
+    height:150px;
+	position: relative;
+	background:#c0c0c0;  
+    
+}
+
+/* Clear Floated Elements 
+.clearfix:before, .clearfix:after {content: "\0020"; 
+display: block; height: 0; visibility: hidden;}
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }*/
