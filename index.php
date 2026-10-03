@@ -262,7 +262,7 @@
 			$status_acerto = false;
 		}
 
-		// --- LÓGICA DE EXIBIÇÃO DAS IMAGENS ---
+			// --- LÓGICA DE EXIBIÇÃO DAS IMAGENS CORRIGIDA ---
 		$pontos_atuais = $_SESSION['pontos'];
 		$tentativas_atuais = $_SESSION['tentativas_rodada'];
 		$nome_base = ""; 
@@ -270,21 +270,24 @@
 		// Regra 1: Se for o FIM do jogo (Atingiu a 10ª tentativa)
 		if ($tentativas_atuais >= 10) {
 			if ($pontos_atuais >= 7) {
-				$nome_base = "03"; // medalha/troféu de campeão
+				$nome_base = "03"; // 7 ou mais pontos no fim (Campeão)
 			} else {
-				$nome_base = "04"; // tela de tente novamente
+				$nome_base = "04"; // Menos de 7 pontos no fim (Tente de novo)
 			}
 		} 
 		// Regra 2: Se for no MEIO do jogo (Tentativas de 1 a 9)
 		else {
-			if ($pontos_atuais == 3) {
-				$nome_base = "01"; // conquista de 3 pontos
-			} elseif ($pontos_atuais == 5) {
-				$nome_base = "02"; // conquista de 5 pontos
+			// SÓ exibe o Yoda se ele ACABA DE GANHAR o 3º ponto nesta rodada
+			if ($pontos_atuais == 3 && $status_acerto == true) {
+				$nome_base = "01"; 
+			} 
+			// SÓ exibe a imagem 02 se ele ACABA DE GANHAR o 5º ponto nesta rodada
+			elseif ($pontos_atuais == 5 && $status_acerto == true) {
+				$nome_base = "02"; 
 			}
 		}
 
-		// Se a lógica definiu um número, o PHP procura o formato correto na pasta 'img'
+		// Se alguma imagem foi definida acima, o PHP procura o formato correto na pasta 'img'
 		if (!empty($nome_base)) {
 			if (file_exists("img/" . $nome_base . ".png")) {
 				$imagem_feedback = "img/" . $nome_base . ".png";
@@ -294,6 +297,7 @@
 				$imagem_feedback = "img/" . $nome_base . ".jpeg";
 			}
 		}
+
 	} 
 	// AÇÃO B: O USUÁRIO VIU O FEEDBACK E CLICOU EM AVANÇAR
 	elseif (isset($_POST["BotaoProxima"])) {

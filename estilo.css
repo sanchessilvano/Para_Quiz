@@ -6,9 +6,10 @@ padding:0;
 /* =container da página */
 #container {
     margin: 0px auto 0px auto;
-	width: 960px;
-	height:930px;
-	background:#ccddbb; 
+    width: 960px;
+    /* MUDADO DE height PARA min-height: permite que o fundo estique se o jogo crescer */
+    min-height: 930px; 
+    background: #ccddbb; 
 }
 #cabecalho {
     margin:0px auto 0px auto;
@@ -21,7 +22,9 @@ padding:0;
     margin: 1px;
     padding-top: 10px;
     padding-bottom: 20px;
-    min-height: 580px;		
+    min-height: 580px;
+    /* ADICIONADO: força o container a recalcular o tamanho de todos os elementos com float */
+    overflow: hidden; 
 }
 nav{
     margin:0px auto 0px auto;
